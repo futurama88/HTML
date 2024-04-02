@@ -1,0 +1,51 @@
+ 
+.container {
+    max-width: 1140px; 
+    margin: right;
+    display: flex;
+
+}
+.navigation{
+    float: right;
+    height:20%;
+    width: 80%;
+}
+.navigation a{
+    height: 50%;
+    display: flex;
+    float: left;
+    padding: 5px 20px;
+    background-color: #101010;
+}
+ 
+ 
+ .logo{
+    float: left;
+    height: 5%;
+    width: 50%;
+    padding: 0,5px;
+    display: inline-block;
+    color: black;
+}
+ 
+ .navigation a li{
+    vertical-align: middle;
+    display: table-cell;
+    font-size: 15px;
+    color: white;
+}
+
+.navigation a:hover{
+    background-color: green;
+    color: #101010;
+}
+
+
+.header {
+color: black;
+width: 70px;
+margin-left: auto;
+margin-right: auto;
+font-weight: bold;
+ 
+}
