@@ -1,0 +1,10 @@
+function createAddFunction(num1) {
+    return function(num2) {
+        return num1 + num2;
+    };
+}
+
+const addFunction = createAddFunction(5);
+const result = addFunction(3);
+console.log(result);
+Вывод в консоле 8
