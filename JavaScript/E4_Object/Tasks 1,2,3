@@ -1,0 +1,47 @@
+// Задание 1
+function showOwnProperties(obj) {
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            console.log(`Ключ: ${key}, Значение: ${obj[key]}`);
+        }
+    }
+}
+
+// Пример вызова функции  
+const exampleObj = {
+    name: 'Alice',
+    age: 30,
+    city: 'New York'
+};
+showOwnProperties(exampleObj);
+
+VM2240:4 Ключ: name, Значение: Alice
+VM2240:4 Ключ: age, Значение: 30
+VM2240:4 Ключ: city, Значение: New York
+undefined
+
+// Задание 2
+function checkProperty(str, obj) {
+    return obj.hasOwnProperty(str);
+}
+
+// Пример вызова функции
+const testObj = {
+    name: 'Bob',
+    age: 25
+};
+console.log(checkProperty('name', testObj)); // Выведет true
+console.log(checkProperty('city', testObj)); // Выведет false
+
+VM2244:10 true
+VM2244:11 false
+undefined
+// Задание 3
+function createEmptyObject() {
+    return Object.create(null);
+}
+
+// Пример вызова функции 
+const emptyObj = createEmptyObject();
+console.log(emptyObj);
+VM2248:7 {}

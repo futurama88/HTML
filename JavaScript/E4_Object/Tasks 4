@@ -1,0 +1,63 @@
+function Appliance(name, power) {
+    this.name = name;
+    this.power = power;
+    this.pluggedIn = false;
+}
+
+Appliance.prototype.turnOn = function() {
+    if (!this.pluggedIn) {
+        this.pluggedIn = true;
+        console.log(`${this.name} включен в розетку.`);
+    } else {
+        console.log(`${this.name} уже включен.`);
+    }
+}
+
+Appliance.prototype.turnOff = function() {
+    if (this.pluggedIn) {
+        this.pluggedIn = false;
+        console.log(`${this.name} выключен из розетки.`);
+    } else {
+        console.log(`${this.name} уже выключен.`);
+    }
+}
+
+function Lamp(name, power, bulbType) {
+    Appliance.call(this, name, power);
+    this.bulbType = bulbType;
+}
+
+Lamp.prototype = Object.create(Appliance.prototype);
+Lamp.prototype.constructor = Lamp;
+
+function Computer(name, power, brand) {
+    Appliance.call(this, name, power);
+    this.brand = brand;
+}
+
+Computer.prototype = Object.create(Appliance.prototype);
+Computer.prototype.constructor = Computer;
+
+const tableLamp = new Lamp('Настольная лампа', 25, 'LED');
+const desktopComputer = new Computer('Настольный компьютер', 350, 'Apple');
+
+tableLamp.turnOn();
+desktopComputer.turnOn();
+desktopComputer.turnOff();
+tableLamp.turnOff();
+
+let totalPower = 0;
+if (tableLamp.pluggedIn) {
+    totalPower += tableLamp.power;
+}
+if (desktopComputer.pluggedIn) {
+    totalPower += desktopComputer.power;
+}
+
+console.log(`Общая потребляемая мощность: ${totalPower} Вт`);
+VM2252:10 Настольная лампа включен в розетку.
+VM2252:10 Настольный компьютер включен в розетку.
+VM2252:19 Настольный компьютер выключен из розетки.
+VM2252:19 Настольная лампа выключен из розетки.
+VM2252:57 Общая потребляемая мощность: 0 Вт
+undefined

@@ -1,0 +1,57 @@
+class Appliance {
+    constructor(name, power) {
+        this.name = name;
+        this.power = power;
+        this.pluggedIn = false;
+    }
+
+    turnOn() {
+        if (!this.pluggedIn) {
+            this.pluggedIn = true;
+            console.log(`${this.name} включен в розетку.`);
+        } else {
+            console.log(`${this.name} уже включен.`);
+        }
+    }
+
+    turnOff() {
+        if (this.pluggedIn) {
+            this.pluggedIn = false;
+            console.log(`${this.name} выключен из розетки.`);
+        } else {
+            console.log(`${this.name} уже выключен.`);
+        }
+    }
+}
+
+class Lamp extends Appliance {
+    constructor(name, power, bulbType) {
+        super(name, power);
+        this.bulbType = bulbType;
+    }
+}
+
+class Computer extends Appliance {
+    constructor(name, power, brand) {
+        super(name, power);
+        this.brand = brand;
+    }
+}
+
+const tableLamp = new Lamp('Настольная лампа', 25, 'LED');
+const desktopComputer = new Computer('Настольный компьютер', 350, 'Apple');
+
+tableLamp.turnOn();
+desktopComputer.turnOn();
+desktopComputer.turnOff();
+tableLamp.turnOff();
+
+let totalPower = 0;
+if (tableLamp.pluggedIn) {
+    totalPower += tableLamp.power;
+}
+if (desktopComputer.pluggedIn) {
+    totalPower += desktopComputer.power;
+}
+
+console.log(`Общая потребляемая мощность: ${totalPower} Вт`);
